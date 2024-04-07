@@ -10,6 +10,7 @@ export const loader: LoaderFunction = async (args) => {
 }
 
 export default function DashBoardRoute(){
+    console.log("rendering!")
     return(
         <div>
         <div>Youre logged in!</div>
