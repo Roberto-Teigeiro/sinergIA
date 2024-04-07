@@ -1,16 +1,15 @@
 import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  LiveReload,
 } from "@remix-run/react";
 import type { MetaFunction, LoaderFunction } from "@remix-run/node";
 import { rootAuthLoader } from "@clerk/remix/ssr.server";
 import { ClerkApp, ClerkErrorBoundary } from "@clerk/remix";
-
-
+import {neobrutalism } from '@clerk/themes';
 
 export const meta: MetaFunction = () => ([{
   charset: "utf-8",
@@ -38,10 +37,15 @@ function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        <LiveReload/>
       </body>
     </html>
   );
 }
 
-export default ClerkApp(App);
+
+export default ClerkApp(App, {
+  appearance: {
+    signIn: { baseTheme: neobrutalism },
+  },
+});
