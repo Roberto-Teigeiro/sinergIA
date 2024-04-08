@@ -1,14 +1,19 @@
 import type { MetaFunction } from "@remix-run/node";
 import SignUpButton from "~/components/signupButton";
 import LoginButton from "~/components/loginButton";
+import { type LoaderFunction} from "@remix-run/node";
+import { useUser } from "@clerk/remix";
+
+
 
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    { title: "SinergIA" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
 
 
 export default function Index() {
@@ -28,6 +33,7 @@ export default function Index() {
     <div>Powered by AI</div>
     <div>Start Learning by doing Projects!</div>
     <div className="flex justify-center space-x-10">
+    {}
     <LoginButton/>
     <SignUpButton/>
     </div>
