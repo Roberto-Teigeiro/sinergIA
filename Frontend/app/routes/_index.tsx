@@ -1,9 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import SignUpButton from "~/components/signupButton";
 import LoginButton from "~/components/loginButton";
-import { type LoaderFunction} from "@remix-run/node";
-import { useUser } from "@clerk/remix";
-
+import Logo from "~/components/logo";
 
 
 
@@ -19,17 +17,16 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
    <div>
-    
+    <Logo/>
     <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
 
-    <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
     <span></span> 
     <div>
-    <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-fuchsia-500 to-cyan-500 hover:from-pink-500 hover:to-yellow-500 lg:inline">
-    Build Your Future </span> 
-    <span><br/>One Project at a Time.</span>
+    <div className="container">
+    <span className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.purple.300),theme(colors.red.100),theme(colors.red.400),theme(colors.yellow.200),theme(colors.sky.400),theme(colors.red.400),theme(colors.purple.300))] bg-[length:200%_auto] animate-gradient">Build your future</span>    </div>
+    <h1 className="font-extrabold text-white"><br/>One Project at a Time.</h1>
     </div>
-    </h1>
+    
     <div>Powered by AI</div>
     <div>Start Learning by doing Projects!</div>
     <div className="flex justify-center space-x-10">

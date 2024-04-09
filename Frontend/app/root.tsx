@@ -28,7 +28,7 @@ export const ErrorBoundary = ClerkErrorBoundary();
 
 function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#3C486B]">
       <head>
         <Meta />
         <Links />
@@ -47,5 +47,6 @@ function App() {
 export default ClerkApp(App, {
   appearance: {
     signIn: { baseTheme: neobrutalism },
+    signUp: {baseTheme: neobrutalism}
   },
 });
