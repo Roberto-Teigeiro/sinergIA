@@ -8,7 +8,7 @@ export const loader: LoaderFunction = async (args) => {
     const { userId, sessionId, getToken } = await getAuth(args);
     console.log(userId)
     if (!userId) {
-        return redirect("/sign-in" + args.request.url);
+        return redirect("/sign-in");
       }
       return { userId };
 };
