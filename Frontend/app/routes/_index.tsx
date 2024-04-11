@@ -22,10 +22,9 @@ export default function Index() {
 
     <span></span> 
     <div>
-    <div className="container">
     <span className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.purple.300),theme(colors.red.100),theme(colors.red.400),theme(colors.yellow.200),theme(colors.sky.400),theme(colors.red.400),theme(colors.purple.300))] bg-[length:200%_auto] animate-gradient">Build your future</span>    </div>
     <h1 className="font-extrabold text-white"><br/>One Project at a Time.</h1>
-    </div>
+
     
     <div>Powered by AI</div>
     <div>Start Learning by doing Projects!</div>
