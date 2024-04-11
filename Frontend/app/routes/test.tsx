@@ -1,15 +1,16 @@
-import type { MetaFunction } from "@remix-run/node";
 import { useUser } from "@clerk/remix";
 import Logo from "~/components/logo";
 import Sidebar from "~/components/sidebar";
-import type { LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getAuth } from "@clerk/remix/ssr.server";
 import { createClerkClient } from "@clerk/remix/api.server";
 
 export const loader: LoaderFunction = async (args) => {
-  const { sessionId } = await getAuth(args)
+  const { sessionId} = await getAuth(args)
+  if (!sessionId) {
+    return redirect("/sign-in");
+  }
   const template = 'supabase';
   const token = await createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY }).sessions.getToken(sessionId, template);
  console.log(token)
