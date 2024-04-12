@@ -6,6 +6,7 @@ export default {
     extend: {
       animation: {
         'gradient': 'gradient 8s linear infinite',
+        'spin-slow': 'spin 5s linear infinite',
       },
       keyframes: {
         'gradient': {

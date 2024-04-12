@@ -10,18 +10,15 @@ export const loader: LoaderFunction = async (args) => {
     if (!userId) {
         return redirect("/sign-in");
       }
-      return { userId };
+      return userId;
 };
 
 export default function DashBoardRoute(){
-    const data = useLoaderData(); 
-    const userId = data?.userId; 
-
-    console.log(userId)
+    const userId = useLoaderData(); 
+    console.log(userId) 
     return(
         <div>
           <Sidebar/>
-          <h1>Holaaaa</h1>
         {userId ? (
           <div className="text-white">You're logged in! User ID: {userId}</div>
         ) : (
