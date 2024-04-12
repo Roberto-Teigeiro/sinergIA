@@ -1,7 +1,7 @@
 import { type LoaderFunction, redirect } from "@remix-run/node";
 import {getAuth} from "@clerk/remix/ssr.server"
 import { UserButton } from "@clerk/remix";
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import Sidebar from "~/components/sidebar";
 
 export const loader: LoaderFunction = async (args) => {
@@ -19,6 +19,7 @@ export default function DashBoardRoute(){
     return(
         <div>
           <Sidebar/>
+          <Outlet/>
         {userId ? (
           <div className="text-white">You're logged in! User ID: {userId}</div>
         ) : (

@@ -13,30 +13,30 @@ export const loader: LoaderFunction = async (args) => {
   if (!userId) {
     return redirect("/sign-in");
   }
-  const template = 'supabase';
-  const token = await createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY }).users.getUser(userId);
-  if(token.privateMetadata.hasProject == true){
-    return redirect("/dashboard")
+  const template = "supabase";
+  const token = await createClerkClient({
+    secretKey: process.env.CLERK_SECRET_KEY,
+  }).users.getUser(userId);
+  if (token.privateMetadata.hasProject == true) {
+    return redirect("/dashboard");
   }
-  return null
+  return null;
 };
 
-
-
-
 export default function choosepath() {
-
-
   return (
-   
     <div className="h-screen flex justify-center items-center flex-col space-y-10 bg-gray-50">
-    <Logo/>
-    <div className="flex space-x-4">
-    <Card title={'Collaborate on a Project'} description="Lets find you a project that aligns with your interests!"/>
-    <Card title={'Launch Your Own Project'} description="Bring your idea to life."/>
+      <Logo />
+      <div className="flex space-x-4">
+        <Card
+          title={"Collaborate on a Project"}
+          description="Lets find you a project that aligns with your interests!"
+        />
+        <Card
+          title={"Launch Your Own Project"}
+          description="Bring your idea to life."
+        />
+      </div>
     </div>
-    </div>
-    
-
   );
 }
