@@ -6,7 +6,6 @@ import Sidebar from "~/components/sidebar";
 
 export const loader: LoaderFunction = async (args) => {
     const { userId, sessionId, getToken } = await getAuth(args);
-    console.log(userId)
     if (!userId) {
         return redirect("/sign-in");
       }
@@ -14,18 +13,14 @@ export const loader: LoaderFunction = async (args) => {
 };
 
 export default function DashBoardRoute(){
-    const userId = useLoaderData(); 
-    console.log(userId) 
     return(
         <div>
+          <div className="">
           <Sidebar/>
-          <Outlet/>
-        {userId ? (
-          <div className="text-white">You're logged in! User ID: {userId}</div>
-        ) : (
-          <div>Loading...</div> 
-         )}      
-       <UserButton afterSignOutUrl="/" />
+
+          <Outlet context={useLoaderData()}/>
+          </div>
+              
        </div>
     )
 }

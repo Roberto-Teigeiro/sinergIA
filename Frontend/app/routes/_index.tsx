@@ -17,7 +17,7 @@ export default function Index() {
       <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
         <span></span>
         <div>
-          <span className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.purple.300),theme(colors.red.100),theme(colors.red.400),theme(colors.yellow.200),theme(colors.sky.400),theme(colors.red.400),theme(colors.purple.300))] bg-[length:200%_auto] animate-gradient">
+          <span className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.fuchsia.300),theme(colors.rose.400),theme(colors.rose.400),theme(colors.yellow.200),theme(colors.sky.400),theme(colors.red.400),theme(colors.purple.300))] bg-[length:200%_auto] animate-gradient">
             Build your future
           </span>{" "}
         </div>

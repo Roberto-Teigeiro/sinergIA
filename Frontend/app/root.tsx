@@ -14,7 +14,7 @@ import { neobrutalism } from "@clerk/themes";
 export const meta: MetaFunction = () => [
   {
     charset: "utf-8",
-    title: "sinegIA",
+    title: "sinergIA",
     viewport: "width=device-width,initial-scale=1",
   },
 ];
