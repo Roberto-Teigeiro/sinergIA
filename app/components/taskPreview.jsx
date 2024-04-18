@@ -14,7 +14,7 @@ const TaskPreview = ({ cardTitle, description, date }) => {
     }
 
   return (
-    <div>
+    <div className= "z-0">
     <button onClick= {handleClick}>
     <div>
         <div className="mx-auto px-6 max-w-6xl text-gray-500">
@@ -46,7 +46,7 @@ const TaskPreview = ({ cardTitle, description, date }) => {
     </button>
     {showModal && 
     <div 
-    className="bg-slate-500 bg-opacity-30 h-full fixed inset-0 overflow-hid">
+    className="bg-slate-500 bg-opacity-30 h-full fixed inset-0 overflow-hid z-50">
         <button 
         onClick= {handleClick} 
         className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 top-16 right-16 absolute text-white">
