@@ -1,6 +1,4 @@
 
-import React from 'react';
-//import TaskModal from "~/components/taskModal";
 import { useState } from 'react';
 import TaskModal from './taskModal';
 
