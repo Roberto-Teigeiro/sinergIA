@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface TaskPreviewProps {
   cardTitle: string;
@@ -6,7 +6,11 @@ interface TaskPreviewProps {
   date: string;
 }
 
-const TaskModal: React.FC<TaskPreviewProps> = ({ cardTitle, description, date }) => {
+const TaskModal: React.FC<TaskPreviewProps> = ({
+  cardTitle,
+  description,
+  date,
+}) => {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="relative flex w-full max-w-[32rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
