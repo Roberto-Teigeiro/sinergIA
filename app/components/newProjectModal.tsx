@@ -7,70 +7,63 @@ export default function NewProjectModal() {
     <Form method="post" action="/api/submitNewProject">
 
 <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12">
-  <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+  <div className="relative py-3  sm:mx-auto">
     <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
       
 
     <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label for="first_name" className="block mb-2 text-sm font-medium text-gray-900">Project Name</label>
-            <input name="email"type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="John" required />
+            <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900">Project Name</label>
+            <input name="projectname"type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="sinergIA" required />
         </div>
         <div>
-            <label for="last_name" className="block mb-2 text-sm font-medium text-gray-900">Project Description</label>
-            <input type="text" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="123-45-678" />
+            
        </div>
         <div>
-            <label for="company" className="block mb-2 text-sm font-medium text-gray-900">Si</label>
-            <input type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Flowbite" required />
+            <label htmlFor="company" className="block mb-2 text-sm font-medium text-gray-900">Actual project status</label>
+            <input name="projectstatus" type="projectstatus" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="..." required />
         </div>  
         <div>
-            <label for="phone" className="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
-            <input type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="123-45-678"  required />
+            <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900">Current Resources</label>
+            <input name="currentresources" type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Detail any infrastructure available for use in this project"  required />
         </div>
         <div>
-            <label for="website" className="block mb-2 text-sm font-medium text-gray-900">Website URL</label>
-            <input type="text" id="website" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="flowbite.com" required />
+            <label htmlFor="Deparments" className="block mb-2 text-sm font-medium text-gray-900">Required Departments (use commas)</label>
+            <input name="requireddepartments" type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Frontend,Backend,UX..." required />
         </div>
         <div>
-            <label for="visitors" className="block mb-2 text-sm font-medium text-gray-900">Unique visitors (per month)</label>
-            <input type="number" id="visitors" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="1" required />
+            <label htmlFor="visitors" className="block mb-2 text-sm font-medium text-gray-900">Required users (per department)</label>
+            <input name="requireduserdepartment" type="number" id="visitors" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="1" required />
         </div>
     </div>
     <div className="mb-6">
-    <label for="phone" className="block mb-2 text-sm font-medium text-gray-900">Detailed Project Description</label>
+    <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900">Detailed Project Description</label>
 
     <textarea
-        className="h-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg resize rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-        name="message"
-        id="message"         
+        className="h-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm resize rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+        name="projectrequirements"
+        id="projectrequirements"         
         placeholder="Detail your project requirements!" 
         required
     ></textarea>
     </div>
     <div className="mb-6">
-        <label for="email" className="block mb-2 text-sm font-medium text-gray-900">Email address</label>
-        <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="john.doe@company.com" required />
+        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Project Objectives</label>
+        <input  name="objectives" type="objective" id="objective" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="What are the specific goals or outcomes you aim to achieve with this project?" required />
     </div> 
-    <div className="mb-6">
-        <label for="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
-        <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="•••••••••" required />
-    </div> 
-    <div className="mb-6">
-        <label for="confirm_password" className="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
-        <input type="password" id="confirm_password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="•••••••••" required />
-    </div> 
+   
     <div className="flex items-start mb-6">
         <div className="flex items-center h-5">
         <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
         </div>
-        <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+        <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
     </div>
     <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
-
       </div>
+      
     </div>
+   
   </div>
 
     
