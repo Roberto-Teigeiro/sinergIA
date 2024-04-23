@@ -15,15 +15,15 @@ const TaskPreview = ({ cardTitle, description, date }) => {
         <div>
           <div className="mx-auto px-6 max-w-6xl text-gray-500">
             <div className="mt-12gap-3">
-              <div className="relative group overflow-hidden p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+              <div className="relative group overflow-hidden p-8 rounded-xl bg-white border border-gray-200">
                 <div
                   aria-hidden="true"
-                  className="inset-0 absolute aspect-w-16 aspect-h-9 border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-5 dark:group-hover:opacity-10"
+                  className="inset-0 absolute aspect-w-16 aspect-h-9 border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-blue-500 to-white  blur-2xl opacity-25 "
                 ></div>
                 <div className="relative">
-                  <div className="border border-blue-500/10 flex relative w-12 h-12 m-auto rounded-lg dark:bg-gray-900 dark:border-white/15 before:rounded-[7px] before:absolute before:inset-0 before:border-t before:border-white before:from-blue-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950">
+                  <div className="border border-blue-500/10 flex relative w-12 h-12 m-auto rounded-lg before:rounded-[7px] before:absolute before:inset-0 before:border-t before:border-white before:from-blue-100  before:bg-gradient-to-b before:shadow">
                     <svg
-                      className="text-[#000014] dark:text-white w-6 h-6 m-auto"
+                      className="text-[#000014] w-6 h-6 m-auto"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 128 128"
                     >
@@ -39,16 +39,16 @@ const TaskPreview = ({ cardTitle, description, date }) => {
                   </div>
 
                   <div className="mt-6 pb-6">
-                    <p className="text-lg text-gray-800 dark:text-white font-semibold">
+                    <p className="text-lg text-gray-800 font-semibold">
                       {cardTitle}
                     </p>
-                    <p className="mt-2 text-gray-700 dark:text-gray-300">
+                    <p className="mt-2 text-gray-700 ">
                       {description}
                     </p>
                   </div>
 
                   <div className="flex justify-center space-x-4">
-                    <p className="mt-2 text-gray-700 dark:text-gray-300">
+                    <p className="mt-2 text-gray-700 ">
                       {date}
                     </p>
                     <button className="py-2 px-4 bg-gray-200 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300">
