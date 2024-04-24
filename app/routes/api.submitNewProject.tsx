@@ -3,8 +3,19 @@ import { ActionFunctionArgs } from "@remix-run/node";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
-  const email = String(formData.get("projectname"));
+  const email = String(formData.getAll("knowledge"));
   const password = String(formData.get("password"));
   console.log(email);
-  return redirect("/dashboard");
+
+  const keys = formData.keys();
+
+  for (const key of keys) {
+    const value = formData.get(key);
+    console.log({key});
+    console.log(value);
+    
 }
+return redirect("/");
+}
+
+
