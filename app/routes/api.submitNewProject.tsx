@@ -1,29 +1,6 @@
-/*import { redirect } from "@remix-run/node";
-import { ActionFunctionArgs } from "@remix-run/node";
-import supabase from "utils/supabase";
-
-export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
-  const email = String(formData.getAll("knowledge"));
-  const password = String(formData.get("password"));
-  console.log(email);
-
-  const keys = formData.keys();
-
-  for (const key of keys) {
-    const value = formData.get(key);
-    console.log({key});
-    console.log(value);
-    
-}
-return redirect("/");
-} */
-
-
 import { redirect } from "@remix-run/node";
 import { ActionFunction } from "@remix-run/node";
 import supabase from "utils/supabase";
-import { LoaderFunction } from "@remix-run/node";
 import { getAuth } from "@clerk/remix/ssr.server";
 import { v4 as uuidv4 } from 'uuid';
 
