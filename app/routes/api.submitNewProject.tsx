@@ -3,19 +3,24 @@ import { ActionFunction } from "@remix-run/node";
 import supabase from "utils/supabase";
 import { getAuth } from "@clerk/remix/ssr.server";
 import { v4 as uuidv4 } from 'uuid';
+import { createClerkClient } from "@clerk/remix/api.server";
 
 export const action: ActionFunction = async (args) => {
   const formData = await args.request.formData();
-  const { userId} = await getAuth(args);
-  console.log("User ID:", userId);
-
-  const keys = formData.keys();
-
-  for (const key of keys) {
-    const value = formData.get(key);
-    console.log({key});
-    console.log(value);
+  const { userId } = await getAuth(args);
+  if (!userId) {
+    return redirect("/sign-in");
   }
+  await createClerkClient({
+    secretKey: process.env.CLERK_SECRET_KEY,
+  }).users.updateUserMetadata(userId,
+    {
+      privateMetadata: { "hasProject": true }
+    }
+  );
+
+
+
 
   const nombre = formData.get("projectname");
   const status = formData.get("projectstatus");
@@ -47,5 +52,13 @@ export const action: ActionFunction = async (args) => {
     return redirect("/choosePath");
   }
 
+  await createClerkClient({
+    secretKey: process.env.CLERK_SECRET_KEY,
+  }).users.updateUserMetadata(userId,
+    {
+      privateMetadata: { "hasProject": true, "isprojectleader" : true }
+    }
+  );
+  console.log("now this user has been assigned to a project!")
   return redirect("/dashboard");
 }
