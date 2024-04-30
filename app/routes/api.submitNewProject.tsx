@@ -24,7 +24,7 @@ export const action: ActionFunction = async (args) => {
   const required_users = formData.get("requireduserdepartment");
   const project_requirements = formData.get("projectrequirements");
   const objectives = formData.get("objectives");
-  
+
   const Proyecto_id = uuidv4();
   const Equipo_id = uuidv4();
 
@@ -40,7 +40,7 @@ export const action: ActionFunction = async (args) => {
 
   const {error: equiposError} = await supabase
     .from('Equipos')
-    .insert({ Equipo_id, Proyecto_id, Usuario_id: userId });
+    .insert({ Equipo_id, Proyecto_id, Leader_id: userId });
 
   if (equiposError) {
     console.error(equiposError);
