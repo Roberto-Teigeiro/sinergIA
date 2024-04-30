@@ -32,7 +32,7 @@ export const ErrorBoundary = ClerkErrorBoundary();
 
 function App() {
   return (
-    <html lang="en" className="bg-[#3C486B]">
+    <html lang="en" className=" bg-gray-50">
       <head>
         <Meta />
         <Links />
