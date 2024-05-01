@@ -1,4 +1,4 @@
-import { useRouteLoaderData } from "@remix-run/react";
+import { useLoaderData, useRouteLoaderData } from "@remix-run/react";
 import { useOutletContext } from "@remix-run/react";
 import { LoaderFunction } from "@remix-run/node";
 import { getAuth } from "@clerk/remix/ssr.server";
@@ -14,7 +14,9 @@ export const loader: LoaderFunction = async (args) => {
     return redirect("/sign-in");
   }
   console.log("rendering tasks! " + userId);
-  return userId;
+  //supabase ... 
+  
+  return null;
 };
 
 const tasks = [
@@ -51,6 +53,7 @@ const tasks = [
 ];
 
 export default function DashboardTask() {
+
   //const { isLoaded, isSignedIn, user } = useUser();
   return (
     <div className="ml-32">

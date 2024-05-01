@@ -4,7 +4,7 @@ function JoinProjectModal() {
 
 
   return (
-    <Form method="post" action="/api/submitNewProject">
+    <Form method="post" action="/api/assignproject">
       <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12">
         <div className="relative py-3  sm:mx-auto">
           <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
@@ -119,56 +119,15 @@ function JoinProjectModal() {
 
     
                         <div className="mt-2 grid grid-cols-2 gap-3 text-gray">
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Music" />
-                                <span className="ml-2 text-gray-700">Chemistry</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Music" />
-                                <span className="ml-2 text-gray-700">Music</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Medicine" />
-                                <span className="ml-2 text-gray-700">Medicine</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Law" />
-                                <span className="ml-2 text-gray-700">Law</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Architecture" />
-                                <span className="ml-2 text-gray-700">Archictecture</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Art" />
-                                <span className="ml-2 text-gray-700">Art and design</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Physics" />
-                                <span className="ml-2 text-gray-700">Physics</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Biology" />
-                                <span className="ml-2 text-gray-700">Biology</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Economics" />
-                                <span className="ml-2 text-gray-700">Economics</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Mathematics" />
-                                <span className="ml-2 text-gray-700">Mathematics</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Compuuter" />
-                                <span className="ml-2 text-gray-700">Computer science</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" className="h-5 w-5 accent-pink-500 " name="knowledge" value="Robotics" />
-                                <span className="ml-2 text-gray-700">Robotics</span>
-                            </div>
+                            
                         </div>
-                       
+                        <input
+                            type="text"
+                            name="Knowledgeareas"
+                            id="Knowledgeareas"
+                            placeholder="What is your area of expertise? "
+                            className="w-full rounded-md border border-[#e0e0e0] bg-gray py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        />
 
 
                     </div>
