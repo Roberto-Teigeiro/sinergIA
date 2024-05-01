@@ -86,9 +86,9 @@ const TaskPreview = ({ cardTitle, description, date }) => {
 
           <div className="flex justify-center space-x-4">
             <TaskModal
-              cardTitle="Task to do"
-              description="Descripción task"
-              date="due date"
+              cardTitle= {cardTitle}
+              description={description}
+              date={date}
             />
           </div>
         </div>

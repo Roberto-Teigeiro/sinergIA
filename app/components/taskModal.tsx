@@ -18,8 +18,8 @@ const TaskModal: React.FC<TaskPreviewProps> = ({
           <h6 className="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-blue-500 antialiased">
             nombre proyecto
           </h6>
-          <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            {cardTitle}
+          <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased placeholder">
+          <textarea placeholder="Enter Description" value={cardTitle}></textarea>
           </h4>
           <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
             {description}
