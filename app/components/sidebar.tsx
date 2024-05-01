@@ -1,6 +1,6 @@
 import { useNavigate } from "@remix-run/react";
 import { useAuth } from "@clerk/remix";
-
+import { UserButton } from "@clerk/remix";
 export default function Sidebar() {
   const navigate = useNavigate();
   const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -36,7 +36,9 @@ export default function Sidebar() {
         </a>
 
         <a
-          href="#analytics"
+           onClick={() => {
+            navigate("/dashboard/team");
+          }}
           className="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800"
         >
           <svg
@@ -84,29 +86,11 @@ export default function Sidebar() {
           <small className="text-center text-xs font-medium"> Settings </small>
         </a>
 
-        <hr className="dark:border-gray-700/60" />
-
-        <a
-          href="/"
-          className="flex h-16 w-16 flex-col items-center justify-center gap-1 text-fuchsia-900 dark:text-gray-400"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"
-            />
-          </svg>
-
-          <small className="text-xs font-medium">Home</small>
-        </a>
+        <hr className="dark:border-gray-700/60 items-center" />
+          <div className="flex aspect-square min-h-[32px] w-16 flex-col items-center justify-center gap-1 rounded-md p-1.5 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800">
+        
+          <UserButton/>
+        </div>
       </nav>
     </div>
   );

@@ -1,3 +1,4 @@
+
 import { useLoaderData } from "@remix-run/react";
 import { useOutletContext } from "@remix-run/react";
 import { LoaderFunction } from "@remix-run/node";
@@ -21,6 +22,12 @@ export const loader: LoaderFunction = async (args) => {
   if (!userId) {
     return redirect("/sign-in");
   }
+  console.log("rendering tasks! " + userId);
+  //supabase ... 
+  
+  return null;
+};
+
 
   const { data: tasksData, error } = await supabase
     .from("Tareas")
@@ -79,6 +86,7 @@ export default function DashboardTask() {
       completed: TaskObject[];
     };
   };
+
   return (
     <div className="ml-32">
       <Logo />
