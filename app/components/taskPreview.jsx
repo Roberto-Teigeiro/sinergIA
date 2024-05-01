@@ -65,10 +65,10 @@ const TaskPreview = ({ cardTitle, description, date }) => {
         <div className="bg-slate-500 bg-opacity-30 h-full fixed inset-0 overflow-hid z-50">
           <button
             onClick={handleClick}
-            className="bg-red rounded-md p-2 inline-flex items-center justify-center text-neutral-950 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 top-16 right-16 absolute text-white"
+            className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 top-16 right-16 absolute text-white"
           >
             <svg
-              className="h-6 w-6"
+              class="h-6 w-6"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -86,9 +86,9 @@ const TaskPreview = ({ cardTitle, description, date }) => {
 
           <div className="flex justify-center space-x-4">
             <TaskModal
-              cardTitle="Task to do"
-              description="Descripción task"
-              date="due date"
+              cardTitle={cardTitle}
+              description={description}
+              date={date}
             />
           </div>
         </div>
