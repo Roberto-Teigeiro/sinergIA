@@ -11,14 +11,6 @@ export const action: ActionFunction = async (args) => {
   if (!userId) {
     return redirect("/sign-in");
   }
-  await createClerkClient({
-    secretKey: process.env.CLERK_SECRET_KEY,
-  }).users.updateUserMetadata(userId,
-    {
-      privateMetadata: { "hasProject": true }
-    }
-  );
-
 
 
 
