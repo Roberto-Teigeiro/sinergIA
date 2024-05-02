@@ -15,7 +15,6 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div>
-      <Logo />
       <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
         <span></span>
         <div>
