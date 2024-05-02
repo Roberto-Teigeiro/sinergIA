@@ -15,7 +15,7 @@
     "@clerk/remix": "^3.2.3",
     "@clerk/themes": "^1.7.12",
     "@google/generative-ai": "^0.9.0",
-    "@remix-run/node": "^2.8.1",
+    "@remix-run/node": "^2.9.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
     "@supabase/supabase-js": "^2.42.7",

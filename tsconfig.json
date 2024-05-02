@@ -9,8 +9,8 @@
     "app/components/SignOutButton.jsx"
   ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
+    "lib": ["DOM", "DOM.Iterable", "ES2022", "ESNext"],
+    "types": ["@remix-run/node", "vite/client", "node"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
