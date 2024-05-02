@@ -3,6 +3,7 @@ import { ActionFunction } from "@remix-run/node";
 import supabase from "utils/supabase";
 import { getAuth } from "@clerk/remix/ssr.server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import {createClerkClient } from "@clerk/remix/api.server";
 
 
 export const action: ActionFunction = async (args) => {
@@ -14,9 +15,16 @@ export const action: ActionFunction = async (args) => {
 
   const formData = await args.request.formData();
   
-  const { userId} = await getAuth(args);
-  console.log("User ID:", userId);
-
+  const { userId } = await getAuth(args);
+  if (userId){
+    const Tokens = await createClerkClient({
+      secretKey: process.env.CLERK_SECRET_KEY,
+    }).users.getUser(userId);
+    const nombre= Tokens.firstName;
+    const email = Tokens.emailAddresses[0].emailAddress;
+    const username = Tokens.username;
+    
+    console.log("User ID:", userId);
   const keys = formData.keys();
 
 
@@ -24,8 +32,13 @@ export const action: ActionFunction = async (args) => {
   const CurrentKnowledge = formData.get("Cknowledge");
   const LevelOfExpertise = formData.get("expertise");
   const AreasToDevelop = formData.get("knowledgeareas");
-  console.log( UserDescription+ ", " + CurrentKnowledge + ", " + LevelOfExpertise + ", " + AreasToDevelop)
-
+  const User_decription = {
+    "description": UserDescription,
+    "currentKnowledge": CurrentKnowledge,
+    "levelOfExpertise": LevelOfExpertise,
+    "areasToDevelop": AreasToDevelop
+  };
+  
 
   const {data, error: proyectosError} = await supabase
   .from('Proyectos')
@@ -56,12 +69,33 @@ export const action: ActionFunction = async (args) => {
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
-  console.log(text);
-
+  const regex = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/;
+  const Proyecto_ids = text.match(regex);
+  if(Proyecto_ids != null){
+    console.log(Proyecto_ids[0])
+    const Proyecto_id = Proyecto_ids[0]
   
+  const Usuario_id = userId;
+  const {error: taskError} = await supabase
+  .from('Usuarios')
+  .insert([{ Usuario_id, nombre , email, username, User_decription, Proyecto_id }]);
+  console.log(taskError)
 
 
-  return redirect("/dashboard");
+  if (taskError == null){
+    await createClerkClient({
+      secretKey: process.env.CLERK_SECRET_KEY,
+    }).users.updateUserMetadata(userId,
+      {
+        privateMetadata: { "hasProject": true, "isprojectleader" : false }
+      }
+    );
+    return redirect("/dashboard");
+  }
+  
+  }
+}
+  return redirect("/sign-in")
 
 
 
