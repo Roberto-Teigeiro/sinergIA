@@ -2,6 +2,8 @@ import type { MetaFunction } from "@remix-run/node";
 import SignUpButton from "~/components/signupButton";
 import LoginButton from "~/components/loginButton";
 import Logo from "~/components/logo";
+import ProjectCard from "~/components/projectCard";
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,7 +23,7 @@ export default function Index() {
             Build your future
           </span>{" "}
         </div>
-        <h1 className="font-extrabold text-white">
+        <h1 className="font-extrabold text-black">
           <br />
           One Project at a Time.
         </h1>
@@ -34,6 +36,36 @@ export default function Index() {
           <SignUpButton />
         </div>
       </div>
+      
+      <div className="relative w-16 h-16 mx-auto mb-8">
+      <div className="absolute bg-yellow-600 w-14 h-14 rotate-45"></div>
+      <div className="absolute bg-gray-50 w-14 h-14 rotate-45 -translate-y-1"></div>
+      </div>
+
+      <div className="relative w-16 h-16 mx-auto mt-8" >
+      <div className="absolute bg-yellow-600 w-14 h-14 rotate-45"></div>
+      <div className="absolute bg-gray-50 w-14 h-14 rotate-45 -translate-y-1"></div>
+      </div>
+
+      <div className="relative w-16 h-16 mx-auto mt-8">
+      <div className="absolute bg-yellow-600 w-14 h-14 rotate-45"></div>
+      <div className="absolute bg-gray-50 w-14 h-14 rotate-45 -translate-y-1"></div>
+      </div>
+            
+
+      <div className="text-center">
+      <h1 className="font-extrabold text-3xl text-black text-center">
+      <br />
+      Check the projects previously created using SinergIA
+    </h1>
+    <br />
+    <p className="text-xl inline-block font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400 text-center">
+      Discover the power of collective genius
+    </p>
+      </div>
+        <ProjectCard />
+        
+        
     </div>
   );
 }
