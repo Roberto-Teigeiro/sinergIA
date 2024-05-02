@@ -12,7 +12,6 @@ export const action: ActionFunction = async (args) => {
   const {userId} = await getAuth(args);
 
 
-
   const  task_name = formData.get("TaskTitle");
   const description = formData.get("TaskDescription");
   console.log( task_name + ", " + description )
