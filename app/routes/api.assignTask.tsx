@@ -15,15 +15,30 @@ export const action: ActionFunction = async (args) => {
   const  task_name = formData.get("TaskTitle");
   const description = formData.get("TaskDescription");
   console.log( task_name + ", " + description )
-
-
+  
   const {data: users, error: userError} = await supabase
   .from('Usuarios')
   .select()  
+  const AvailableUsers = JSON.stringify(users, null, 2);
+
+  const prompt2 = `
+  Given a user id, match the user information and return just the project id
+  that the user is in.
+  ${AvailableUsers}
+
+  and this is the users id
+  userID:
+  ${userId}
+
+  Return only the project ID found in the information of the user.
+  Don't say anything else. Only the project ID. 
+  `
+  const result2 = await model.generateContent(prompt2);
+  const response2 = await result2.response;
+  const Proyecto_id = response2.text(); 
   
 
-  const AvailableUsers = JSON.stringify(users, null, 2)
-
+  
   const prompt = `
   Given a the task name and task description, match the user to suitable for the task and return only the User ID selected por the task.
   The users must be on the same proyect.
@@ -34,34 +49,19 @@ export const action: ActionFunction = async (args) => {
   ${task_name}
   ${description}
 
+  and this is the project id, that the other users must match.
+  ${Proyecto_id}
+  
   Return only the User ID that match the user's description to do the task.
   Don't say anything else. Only the user ID.
   `
-  
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  const text = response.text();
-
-  //para obtener el poject_id
-  const Usuario_id = text;
+  const Usuario_id = response.text();
   
-  const prompt2 = `
-  Given a user id, match the user information and return just the project id
-  that the user is in.
-  ${AvailableUsers}
+  console.log(Usuario_id);
 
-  and this is the users id
-  userID:
-  ${Usuario_id}
-
-  Return only the project ID found in the information of the user.
-  Don't say anything else. Only the project ID. 
-  `
-  const result2 = await model.generateContent(prompt2);
-  const response2 = await result2.response;
-  const Proyecto_id = response2.text();  
-  
   const due_date = new Date();
   const status = "To do";
   const Tarea_id = uuidv4();
